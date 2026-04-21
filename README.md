@@ -63,4 +63,4 @@ This site is deployed to GitHub Pages. To push a new build:
 - [x] **Responsive Design:** Mobile-first layout for archers on the go.
 
 ---
-*Created by [Your Name]*
+*Created by Kaffeinated Kodemonkey*
