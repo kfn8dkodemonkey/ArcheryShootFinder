@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `https://archeryshootfinder.com`,
+        url: `https://archeryshootfinder.com/drawboard/graphql`,
       },
     },
 
