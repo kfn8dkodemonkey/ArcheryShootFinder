@@ -1,127 +1,138 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from 'react';
+import { useState } from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+/* layout and components */
+import 'bootstrap/dist/css/bootstrap.min.css'
+import HPLayout from "../components/PageLayout"
+import Hero from "../components/Hero"
+import Featured from "../components/Featured"
+import Shoots from "../components/Shoots"
+import ClubRange from '../components/ClubRange';
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Netlify. Get started for free!",
-  },
-]
+const IndexPage = ({ data }) => {
+  const [activeTab, setActiveTab] = useState('Shoots');
+  const [selectedShoot, setSelectedShoot] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
+  const handleOpenDetails = (shoot) => {
+    setSelectedShoot(shoot);
+    setShowModal(true);
+  };
 
-const moreLinks = [
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+  return (
+    <HPLayout>
+      <div className="container-fluid p-0">
+        
+        {/* HERO - Always Visible */}
+        <div className="row">
+          <Hero />
+        </div>
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+        {/* FEATURED - Always Visible */}
+        <div className="row p-3">
+          <Featured />
+        </div>
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        <b>Archery Shoot Finder</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+        <hr />
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+        {/* TAB NAVIGATION - Always Visible */}
+        <div className="row px-3">
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <button 
+                className={`nav-link ${activeTab === 'Shoots' ? 'active' : ''}`}
+                onClick={() => setActiveTab('Shoots')}
+              >
+                Shoots
+              </button>
+            </li>
+            <li className="nav-item">
+              <button 
+                className={`nav-link ${activeTab === 'CR' ? 'active' : ''}`}
+                onClick={() => setActiveTab('CR')}
+              >
+                Clubs & Ranges
+              </button>
+            </li>
+            <li className="nav-item">
+              <button 
+                className={`nav-link ${activeTab === 'PS' ? 'active' : ''}`}
+                onClick={() => setActiveTab('PS')}
+              >
+                Pro Shops
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* DYNAMIC SECTION */}
+        <div className="row p-3 bg-success bg-opacity-25">
+          {activeTab === 'Shoots' && (
+            <Shoots 
+              data={data?.allWpShoot} 
+              onViewDetails={handleOpenDetails} // FIXED: Added this missing prop
+            />
+          )}
+          {activeTab === 'CR' && (
+            <ClubRange data={data?.allWpLocations} />
+          )}
+          {activeTab === 'PS' && (
+             <div className="py-4 text-center">
+               <h3>Pro Shops Directory</h3>
+               <p className="text-muted">Coming soon! Find local archery retailers here.</p>
+             </div>
+          )}
+        </div>
+
+        {/* MODAL STRUCTURE */}
+        {showModal && selectedShoot && (
+          <div className="modal fade show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
+            <div className="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+              <div className="modal-content shadow-lg border-0">
+                <div className="modal-header bg-primary text-white">
+                  <h5 className="modal-title">{selectedShoot.title}</h5>
+                  <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
+                </div>
+                <div className="modal-body p-4">
+                  <div className="mb-3">
+                    {/* Added optional chaining here to prevent crashes if data is missing */}
+                    <span className="badge bg-secondary me-2">{selectedShoot.shootFields?.shootType || '3D'}</span>
+                    <span className="text-muted small">🗓 {selectedShoot.shootFields?.shootDate || 'TBD'}</span>
+                  </div>
+                  {/* Using dangerouslySetInnerHTML because WordPress content often contains HTML tags */}
+                  <div dangerouslySetInnerHTML={{ __html: selectedShoot.content }} />
+                </div>
+                <div className="modal-footer">
+                  <button className="btn btn-outline-secondary" onClick={() => setShowModal(false)}>Close</button>
+                  <button className="btn btn-primary px-4">Register Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
+    </HPLayout>
+  )
+}
+
+// At the bottom of index.js
+export const query = graphql`
+  query GetArcheryData {
+    # Part A: Get Shoots
+    allWpShoot {
+      nodes {
+        id
+        title
+        shootData {
+          shootDate
+          shootType
+        }
+      }
+    }
+  }
+`
+
 
 export default IndexPage
