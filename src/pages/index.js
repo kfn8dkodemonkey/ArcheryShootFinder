@@ -97,8 +97,8 @@ const IndexPage = ({ data }) => {
                 <div className="modal-body p-4">
                   <div className="mb-3">
                     {/* Added optional chaining here to prevent crashes if data is missing */}
-                    <span className="badge bg-secondary me-2">{selectedShoot.shootFields?.shootType || '3D'}</span>
-                    <span className="text-muted small">🗓 {selectedShoot.shootFields?.shootDate || 'TBD'}</span>
+                    <span className="badge bg-secondary me-2">{selectedShoot.shootData?.shootType || '3D'}</span>
+                    <span className="text-muted small">🗓 {selectedShoot.shootData?.shootDate || 'TBD'}</span>
                   </div>
                   {/* Using dangerouslySetInnerHTML because WordPress content often contains HTML tags */}
                   <div dangerouslySetInnerHTML={{ __html: selectedShoot.content }} />
