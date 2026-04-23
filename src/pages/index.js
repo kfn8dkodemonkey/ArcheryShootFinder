@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { graphql } from 'gatsby';
 
 /* layout and components */
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HPLayout from "../components/PageLayout"
-import Hero from "../components/Hero"
-import Featured from "../components/Featured"
 import Shoots from "../components/Shoots"
 import ClubRange from '../components/ClubRange';
+import PageLayout from '../components/PageLayout';
 
 const IndexPage = ({ data }) => {
-  const [activeTab, setActiveTab] = useState('Shoots');
-  const [selectedShoot, setSelectedShoot] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [activeTab, setActiveTab] = React.useState('Shoots');
+  const [selectedShoot, setSelectedShoot] = React.useState(null);
+  const [showModal, setShowModal] = React.useState(false);
 
   const handleOpenDetails = (shoot) => {
     setSelectedShoot(shoot);
@@ -21,21 +20,8 @@ const IndexPage = ({ data }) => {
   };
 
   return (
-    <HPLayout>
+    <PageLayout>
       <div className="container-fluid p-0">
-        
-        {/* HERO - Always Visible */}
-        <div className="row">
-          <Hero />
-        </div>
-
-        {/* FEATURED - Always Visible */}
-        <div className="row p-3">
-          <Featured />
-        </div>
-
-        <hr />
-
         {/* TAB NAVIGATION - Always Visible */}
         <div className="row px-3">
           <ul className="nav nav-tabs">
@@ -113,7 +99,7 @@ const IndexPage = ({ data }) => {
         )}
 
       </div>
-    </HPLayout>
+    </PageLayout>
   )
 }
 
@@ -131,18 +117,6 @@ export const query = graphql`
         }
       }
     }
-    # Part B: Get ONLY Featured Locations
-    # featuredLocations: allWpLocation(
-    #   filter: { locationData: { isFeatured: { eq: true } } }
-    # ) {
-    #  nodes {
-    #     id
-    #     title
-    #     locationData {
-    #       locationType
-    #     }
-    #   }
-    # }
   }
 `
 
