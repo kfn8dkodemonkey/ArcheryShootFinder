@@ -53,7 +53,7 @@ const IndexPage = ({ data }) => {
         </div>
 
         {/* DYNAMIC SECTION */}
-        <div className="row p-3 bg-success bg-opacity-25">
+        <div className="row p-3 bg-secondary bg-opacity-25">
           {activeTab === 'Shoots' && (
             <Shoots 
               data={data?.allWpShoot} 

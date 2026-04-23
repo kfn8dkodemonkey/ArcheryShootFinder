@@ -16,7 +16,7 @@ const Shoots = ({ data, onViewDetails }) => {
   return (
     <div className="row g-3">
       {shoots.map((shoot) => (
-        <div key={shoot.id} className="col-12">
+        <div key={shoot.id} className="col-6 sm-12">
           <div className="card shadow-sm border-0">
             <div className="card-body d-flex justify-content-between align-items-center">
               <div>
