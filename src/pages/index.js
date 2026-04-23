@@ -120,7 +120,7 @@ const IndexPage = ({ data }) => {
 // At the bottom of index.js
 export const query = graphql`
   query GetArcheryData {
-    # Part A: Get Shoots
+    # Part A: Get Shoot
     allWpShoot {
       nodes {
         id
@@ -131,6 +131,18 @@ export const query = graphql`
         }
       }
     }
+    # Part B: Get ONLY Featured Locations
+    # featuredLocations: allWpLocation(
+    #   filter: { locationData: { isFeatured: { eq: true } } }
+    # ) {
+    #  nodes {
+    #     id
+    #     title
+    #     locationData {
+    #       locationType
+    #     }
+    #   }
+    # }
   }
 `
 
