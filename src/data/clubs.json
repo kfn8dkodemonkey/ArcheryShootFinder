@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "slug": "pine-ridge-archery-club",
+    "name": "Pine Ridge Archery Club",
+    "description": "A premier archery facility featuring 40+ 3D targets on wooded trails, indoor range with 20 lanes, and pro shop. Open to all skill levels with programs for youth and adults.",
+    "type": "club",
+    "location": {
+      "address": "1234 Forest Trail",
+      "city": "Boulder",
+      "state": "CO",
+      "zip": "80301",
+      "lat": 40.0150,
+      "lng": -105.2705
+    },
+    "contact": {
+      "phone": "(303) 555-0123",
+      "email": "info@pineridgearchery.com",
+      "website": "https://pineridgearchery.com"
+    },
+    "facilities": ["3D Course", "Indoor Range", "Pro Shop", "Lessons", "Equipment Rental"],
+    "hours": {
+      "weekday": "9:00 AM - 7:00 PM",
+      "weekend": "8:00 AM - 6:00 PM"
+    },
+    "membership": {
+      "required": false,
+      "details": "Day passes available. Annual membership includes unlimited range access and pro shop discounts."
+    },
+    "imageUrl": "/images/clubs/pine-ridge.jpg"
+  },
+  {
+    "id": "2",
+    "slug": "desert-springs-sports-complex",
+    "name": "Desert Springs Sports Complex",
+    "description": "World-class target archery facility with 20+ lanes, climate-controlled indoor range, and Olympic-standard outdoor fields. Home to multiple state and regional championships.",
+    "type": "range",
+    "location": {
+      "address": "5678 Mesa Drive",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85001",
+      "lat": 33.4484,
+      "lng": -112.0740
+    },
+    "contact": {
+      "phone": "(602) 555-0456",
+      "email": "info@desertspringsarchery.com",
+      "website": "https://desertspringsarchery.com"
+    },
+    "facilities": ["Olympic Range", "Indoor Range", "Pro Shop", "Lessons", "Tournaments", "Equipment Tuning"],
+    "hours": {
+      "weekday": "6:00 AM - 8:00 PM",
+      "weekend": "7:00 AM - 7:00 PM"
+    },
+    "membership": {
+      "required": true,
+      "details": "Membership required for range access. Daily passes available for tournaments only."
+    },
+    "imageUrl": "/images/clubs/desert-springs.jpg"
+  },
+  {
+    "id": "3",
+    "slug": "community-center-gymnasium",
+    "name": "Denver Community Center",
+    "description": "Multi-purpose community facility with dedicated archery programs. Offers youth clinics, adult lessons, and open shoot times in a safe, family-friendly environment.",
+    "type": "club",
+    "location": {
+      "address": "789 Main Street",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "80202",
+      "lat": 39.7392,
+      "lng": -104.9903
+    },
+    "contact": {
+      "phone": "(720) 555-0789",
+      "email": "programs@denvergov.org",
+      "website": "https://denvergov.org/archery"
+    },
+    "facilities": ["Indoor Range", "Youth Programs", "Lessons", "Equipment Rental"],
+    "hours": {
+      "weekday": "3:00 PM - 8:00 PM",
+      "weekend": "10:00 AM - 4:00 PM"
+    },
+    "membership": {
+      "required": false,
+      "details": "Pay-per-session or membership options available. Youth programs require registration."
+    },
+    "imageUrl": "/images/clubs/denver-community.jpg"
+  },
+  {
+    "id": "4",
+    "slug": "riverside-archery-range",
+    "name": "Riverside Archery Range",
+    "description": "Scenic outdoor range along the river with 3D course, field archery trails, and night shoot capabilities. Perfect for bowhunters and recreational archers.",
+    "type": "range",
+    "location": {
+      "address": "321 River Road",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78701",
+      "lat": 30.2672,
+      "lng": -97.7431
+    },
+    "contact": {
+      "phone": "(512) 555-0321",
+      "email": "info@riversidearchery.com",
+      "website": "https://riversidearchery.com"
+    },
+    "facilities": ["3D Course", "Field Archery", "Night Shoots", "Pro Shop", "Bowhunting Practice"],
+    "hours": {
+      "weekday": "10:00 AM - 8:00 PM",
+      "weekend": "8:00 AM - 9:00 PM"
+    },
+    "membership": {
+      "required": false,
+      "details": "Day passes available. Season passes offer unlimited access and discounts."
+    },
+    "imageUrl": "/images/clubs/riverside.jpg"
+  },
+  {
+    "id": "5",
+    "slug": "mountain-view-archery-park",
+    "name": "Mountain View Archery Park",
+    "description": "Premier traditional archery facility with challenging wooded courses, primitive skills area, and traditional archery focus. No compound bows allowed.",
+    "type": "club",
+    "location": {
+      "address": "456 Highland Ave",
+      "city": "Asheville",
+      "state": "NC",
+      "zip": "28801",
+      "lat": 35.5951,
+      "lng": -82.5515
+    },
+    "contact": {
+      "phone": "(828) 555-0654",
+      "email": "info@traditionalarchery.org",
+      "website": "https://traditionalarchery.org"
+    },
+    "facilities": ["Traditional Only", "3D Course", "Field Course", "Primitive Skills Area", "Workshops"],
+    "hours": {
+      "weekday": "9:00 AM - 6:00 PM",
+      "weekend": "8:00 AM - 7:00 PM"
+    },
+    "membership": {
+      "required": true,
+      "details": "Membership required. Focus on traditional archery education and conservation."
+    },
+    "imageUrl": "/images/clubs/mountain-view.jpg"
+  },
+  {
+    "id": "6",
+    "slug": "wildlife-education-center",
+    "name": "Wildlife Education Center",
+    "description": "State-run facility combining hunter education with archery practice. Features 3D animal targets, classroom facilities, and certification programs.",
+    "type": "range",
+    "location": {
+      "address": "890 Hunter Trail",
+      "city": "Missoula",
+      "state": "MT",
+      "zip": "59801",
+      "lat": 46.8721,
+      "lng": -113.9940
+    },
+    "contact": {
+      "phone": "(406) 555-0987",
+      "email": "education@fwp.mt.gov",
+      "website": "https://fwp.mt.gov/archery"
+    },
+    "facilities": ["Hunter Education", "3D Course", "Classroom", "Certification Programs", "Youth Programs"],
+    "hours": {
+      "weekday": "8:00 AM - 5:00 PM",
+      "weekend": "Closed (Open for scheduled programs)"
+    },
+    "membership": {
+      "required": false,
+      "details": "Open to public. Hunter education courses require pre-registration."
+    },
+    "imageUrl": "/images/clubs/wildlife-center.jpg"
+  },
+  {
+    "id": "7",
+    "slug": "university-sports-center",
+    "name": "University Sports Center",
+    "description": "NCAA-compliant indoor archery facility serving university teams and the local community. Features Olympic-distance ranges and modern training equipment.",
+    "type": "range",
+    "location": {
+      "address": "100 Campus Drive",
+      "city": "Madison",
+      "state": "WI",
+      "zip": "53706",
+      "lat": 43.0731,
+      "lng": -89.4012
+    },
+    "contact": {
+      "phone": "(608) 555-0111",
+      "email": "archery@wisc.edu",
+      "website": "https://wisc.edu/archery"
+    },
+    "facilities": ["Olympic Range", "Indoor Range", "Training Equipment", "Video Analysis", "Team Facilities"],
+    "hours": {
+      "weekday": "6:00 AM - 9:00 PM",
+      "weekend": "9:00 AM - 5:00 PM"
+    },
+    "membership": {
+      "required": false,
+      "details": "Open to students, faculty, and community members. Community memberships available."
+    },
+    "imageUrl": "/images/clubs/university.jpg"
+  },
+  {
+    "id": "8",
+    "slug": "oakwood-nature-preserve",
+    "name": "Oakwood Nature Preserve",
+    "description": "Beautiful natural setting for field archery with challenging woodland courses. Part of international field archery organization with sanctioned tournaments.",
+    "type": "club",
+    "location": {
+      "address": "2200 Nature Way",
+      "city": "Portland",
+      "state": "OR",
+      "zip": "97201",
+      "lat": 45.5152,
+      "lng": -122.6784
+    },
+    "contact": {
+      "phone": "(503) 555-0222",
+      "email": "info@pnwfieldarchers.org",
+      "website": "https://pnwfieldarchers.org"
+    },
+    "facilities": ["Field Archery", "IFO Courses", "Tournaments", "Nature Trails", "Conservation Area"],
+    "hours": {
+      "weekday": "Dawn to Dusk",
+      "weekend": "Dawn to Dusk"
+    },
+    "membership": {
+      "required": true,
+      "details": "Membership includes access to courses and participation in tournaments. Family memberships available."
+    },
+    "imageUrl": "/images/clubs/oakwood.jpg"
+  }
+]

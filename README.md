@@ -1,103 +1,201 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Archery Shoot Finder
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+A Progressive Web App (PWA) for discovering archery shoots, tournaments, and events near you. Built with Gatsby and featuring an interactive Google Map and a tabbed directory layout.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## Features
 
-## 🚀 Quick start
+- **Interactive Google Map**: View all archery shoots on a map with custom markers
+- **Tabbed Directory**: Browse upcoming and past shoots in an organized tab layout
+- **PWA Support**: Install on your device for offline access
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Shoot Details**: Click on map markers or list items to see detailed information
 
-1.  **Create a Gatsby site.**
+## Getting Started
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+### Prerequisites
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+- Node.js (v14 or higher)
+- npm or yarn
+- Google Maps API Key
 
-1.  **Start developing.**
+### Installation
 
-    Navigate into your new site’s directory and start it up.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/archeryshootfinder/archery-shoot-finder.git
+   cd archery-shoot-finder
+   ```
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-1.  **Open the source code and start editing!**
+3. **Set up Google Maps API Key**
+   
+   a. Get your API key from [Google Cloud Console](https://developers.google.com/maps/documentation/javascript/get-api-key)
+   
+   b. Enable the following APIs:
+      - Maps JavaScript API
+   
+   c. Create a `.env` file in the root directory:
+      ```bash
+      cp .env.example .env
+      ```
+   
+   d. Add your API key to `.env`:
+      ```
+      GATSBY_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+      ```
 
-    Your site is now running at `http://localhost:8000`!
+4. **Start the development server**
+   ```bash
+   npm run develop
+   ```
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
+5. **Open your browser**
+   Visit `http://localhost:8000` to see the app.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## Project Structure
 
-## 🚀 Quick start (Netlify)
+```
+├── src/
+│   ├── components/
+│   │   ├── map.js              # Google Map component
+│   │   ├── map.module.css      # Map styles
+│   │   ├── tabs.js             # Tabbed directory component
+│   │   ├── tabs.module.css     # Tabs styles
+│   │   ├── header.js           # Header component
+│   │   ├── layout.js           # Layout wrapper
+│   │   └── seo.js              # SEO component
+│   ├── pages/
+│   │   ├── index.js            # Home page
+│   │   └── index.module.css    # Home page styles
+│   ├── templates/
+│   │   ├── shoot.js            # Individual shoot page template
+│   │   └── shoot.module.css    # Shoot page styles
+│   └── data/
+│       └── shoots.json         # Shoot data
+├── gatsby-config.js            # Gatsby configuration
+├── package.json                # Dependencies
+└── .env.example                # Environment variables template
+```
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Adding Shoot Data
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+Shoot data is stored in `src/data/shoots.json`. Each shoot object should include:
 
-## 🧐 What's inside?
+```json
+{
+  "id": "unique-id",
+  "slug": "shoot-slug",
+  "name": "Shoot Name",
+  "description": "Description of the shoot",
+  "date": "2026-04-15",
+  "endDate": "2026-04-16",
+  "time": "8:00 AM - 4:00 PM",
+  "location": {
+    "name": "Venue Name",
+    "address": "123 Street Address",
+    "city": "City",
+    "state": "ST",
+    "zip": "12345",
+    "lat": 40.0150,
+    "lng": -105.2705
+  },
+  "organizer": {
+    "name": "Organizer Name",
+    "email": "email@example.com",
+    "phone": "(123) 456-7890"
+  },
+  "categories": ["Category1", "Category2"],
+  "registrationRequired": true,
+  "registrationUrl": "https://registration-url.com",
+  "entryFee": "$25 adults, $15 youth",
+  "prizes": "Prize information",
+  "equipment": "Equipment details"
+}
+```
 
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
+**Important**: For shoots to appear on the map, they must include `lat` and `lng` coordinates in the location object.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
+## Building for Production
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+```bash
+npm run build
+```
 
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+This creates an optimized build in the `public` directory.
 
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+## Serving the Production Build
 
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+```bash
+npm run serve
+```
 
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
+## PWA Features
 
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+The app includes PWA functionality through `gatsby-plugin-manifest`:
 
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+- **Installable**: Users can add the app to their home screen
+- **Offline Support**: Basic offline functionality
+- **App Shell**: Fast loading with cached assets
 
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+To enable full offline support for the map, consider implementing service worker caching strategies for Google Maps tiles.
 
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+## Customization
 
-1.  **`README.md`**: A text file containing useful reference information about your project.
+### Styling
 
-## 🎓 Learning Gatsby
+The app uses CSS Modules for scoped styling. Key files:
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+- `src/components/map.module.css` - Map component styles
+- `src/components/tabs.module.css` - Tabs component styles
+- `src/pages/index.module.css` - Home page styles
+- `src/components/layout.css` - Global styles and CSS variables
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+### Colors and Theme
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+Global CSS variables are defined in `src/components/layout.css`:
 
-## 💫 Deploy
+```css
+:root {
+  --color-primary: #2d5a27;
+  --color-text: #333333;
+  --color-background: #f5f5f5;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --border-radius: 8px;
+}
+```
 
-[Build, Deploy, and Host On Netlify](https://netlify.com)
+## Troubleshooting
 
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
+### Map Not Loading
 
-<!-- AUTO-GENERATED-CONTENT:END -->
-# Gatsby_Test
-# Gatsby_Test
-# Gatsby_Test
-# ArcheryShootFinder
+1. Verify your Google Maps API key is correct
+2. Ensure the API key has Maps JavaScript API enabled
+3. Check browser console for error messages
+4. Confirm the `.env` file is in the root directory
+
+### Build Errors
+
+1. Clear Gatsby cache: `npm run clean`
+2. Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
+3. Ensure all environment variables are set
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Support
+
+For questions or support, please contact us at support@archeryshootfinder.com.

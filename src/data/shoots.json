@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "slug": "spring-classic-3d-shoot",
+    "name": "Spring Classic 3D Shoot",
+    "description": "Annual 3D archery shoot featuring 40 life-like animal targets on a wooded course. Open to all skill levels with separate divisions for compound, recurve, and traditional bows.",
+    "date": "2026-04-15",
+    "endDate": "2026-04-16",
+    "time": "8:00 AM - 4:00 PM",
+    "imageUrl": null,
+    "location": {
+      "name": "Pine Ridge Archery Range",
+      "address": "1245 Forest Road, Evergreen, CO 80439",
+      "city": "Evergreen",
+      "state": "CO",
+      "zip": "80439",
+      "lat": 39.6331,
+      "lng": -105.3172,
+      "country": "USA"
+    },
+    "clubId": "1",
+    "organizer": {
+      "name": "Pine Ridge Archery Club",
+      "email": "info@pineridgearchery.com",
+      "phone": "(303) 555-0123"
+    },
+    "categories": ["3D", "Competition", "Family Friendly"],
+    "registrationRequired": true,
+    "registrationUrl": "https://example.com/register/spring-classic",
+    "entryFee": "$25 adults, $15 youth under 18",
+    "prizes": "Trophies for 1st-3rd in each division. Door prizes throughout the event.",
+    "equipment": "Targets range from 10 to 60 yards. Known distance and unknown distance courses available."
+  },
+  {
+    "id": "2",
+    "slug": "desert-target-championship",
+    "name": "Desert Target Championship",
+    "description": "USA Archery sanctioned target archery tournament. FITA rounds on a 20-lane range.",
+    "date": "2026-05-02",
+    "endDate": "2026-05-03",
+    "time": "7:00 AM - 6:00 PM",
+    "imageUrl": null,
+    "location": {
+      "name": "Sonoran Archery Complex",
+      "address": "8921 Desert Vista Drive, Phoenix, AZ 85044",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85044",
+      "lat": 33.3121,
+      "lng": -112.0789,
+      "country": "USA"
+    },
+    "clubId": "2",
+    "organizer": {
+      "name": "Arizona Archery Association",
+      "email": "tournaments@azarchery.org",
+      "phone": "(602) 555-0456"
+    },
+    "categories": ["Target", "Championship", "USA Archery"],
+    "registrationRequired": true,
+    "registrationUrl": "https://example.com/register/desert-championship",
+    "entryFee": "$40 per day or $70 for both days",
+    "prizes": "Medals and cash prizes. Top 3 in each category advance to regionals.",
+    "equipment": "122cm faces at 70m for recurve, 60cm faces at 50m for compound."
+  },
+  {
+    "id": "3",
+    "slug": "youth-archery-clinic",
+    "name": "Youth Archery Clinic",
+    "description": "Beginner-friendly archery clinic for kids ages 8-17.",
+    "date": "2026-05-15",
+    "endDate": "2026-05-15",
+    "time": "1:00 PM - 4:00 PM",
+    "imageUrl": null,
+    "location": {
+      "name": "Cherry Creek State Park Archery Range",
+      "address": "4201 S Parker Road, Aurora, CO 80015",
+      "city": "Aurora",
+      "state": "CO",
+      "zip": "80015",
+      "lat": 39.6378,
+      "lng": -104.8012,
+      "country": "USA"
+    },
+    "clubId": "3",
+    "organizer": {
+      "name": "Denver Parks & Recreation",
+      "email": "programs@denvergov.org",
+      "phone": "(720) 555-0789"
+    },
+    "categories": ["Youth", "Clinic", "Beginner", "Educational"],
+    "registrationRequired": true,
+    "registrationUrl": "https://example.com/register/youth-clinic",
+    "entryFee": "$20 per participant",
+    "prizes": "All participants receive a certificate and participation ribbon.",
+    "equipment": "All bows and arrows provided."
+  }
+]
